@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import Cart from "./components/Cart";
+import ProductCard from "./components/ProductCard";
+
+const DUMMY_PRODUCTS = [
+  { id: 1, name: "Kopi Tubruk", price: 15000 },
+  { id: 2, name: "Teh Tarik", price: 12000 },
+  { id: 3, name: "Air Mineral", price: 5000 },
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ padding: 20 }}>
+      <h1>Store</h1>
+      <div style={{ display: "flex", flexWrap: "wrap" }}>
+        {DUMMY_PRODUCTS.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
+      <Cart />
     </div>
   );
 }
